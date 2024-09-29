@@ -2,7 +2,7 @@ import React from 'react'
 
 function Fotter() {
   return (
-    <div className=' h-[400px] w-full bg-NaveberBackColor '>
+    <div className='  h-[90%]  w-[100%] bg-NaveberBackColor '>
       <div className='w-full h-[64%] text-white flex justify-evenly items-center '>
 
         <div className=' flex flex-col gap-2 text-[15px] text-left '>

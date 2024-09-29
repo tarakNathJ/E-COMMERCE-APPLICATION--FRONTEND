@@ -4,7 +4,7 @@ import React from 'react'
 import { useState } from "react"
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import {BaseApi} from '../DataBase'
+
 
 
 
@@ -66,7 +66,7 @@ function SignUp() {
             try{
                 SetStatus(false);
                 setErrorAPI(false);
-                const responce = await axios.post(`/Base/api/v1/user/sendOTP`,{
+                const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/sendOTP`,{
                     email:OTPemail.email
                 },{
                     headers: {
@@ -153,7 +153,7 @@ function SignUp() {
         try{
             SetStatusSignUP(false)
            
-            const responce = await axios.post(`/Base/api/v1/user/signUp`,{
+            const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signUp`,{
                 FirstName:fromData.FirstName,
                 LastName:fromData.LastName,
                 Email:fromData.email,

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ParentCard from './selectByprodut/ParentCard';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import {BaseApi} from '../DataBase'
+
 
 
 function SelectByProduct() {
@@ -26,7 +26,7 @@ function SelectByProduct() {
     try {
       SetLoding(true);
       setErrors(false);
-      const Responce = await axios.post(`/Base/api/v1/productManager/ShowAllItmeUsing_UOM_ID`, {
+      const Responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/productManager/ShowAllItmeUsing_UOM_ID`, {
         UOM: UomData.UomData
       }, {
         headers: {

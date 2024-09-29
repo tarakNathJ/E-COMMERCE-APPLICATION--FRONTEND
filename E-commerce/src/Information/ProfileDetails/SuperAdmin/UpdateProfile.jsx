@@ -1,14 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 import { useSelector } from 'react-redux';
-import {BaseApi} from '../../../DataBase'
+
 function UpdateProfile() {
 
   const datas = useSelector((store) => store.Profile);
     const OnclickHandeler = async()=>{
       const Controller = new AbortController()
        try{
-        const responce = await axios.post(`/Base/api/v1/user/UpdateSuperUser`,{},{
+        const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/UpdateSuperUser`,{},{
           headers:{
             "Content-Type":"application/json",
             Authorisation: `Bearer ${datas.data.token}`,

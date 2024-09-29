@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { removeInformation } from '../Redux/BuyProductAndCustromerInfo';
 import { useNavigate } from 'react-router-dom';
 import axios, { isCancel } from 'axios';
-import { BaseApi } from '../DataBase'
+
 
 
 
@@ -46,7 +46,7 @@ function OrderPlace() {
         const Controller = new AbortController();
         try {
             SetStatus(false);
-            const Responce = await axios.post(`/Base/api/v1/paymentGetway/order`, {
+            const Responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/paymentGetway/order`, {
                 Amount: TotalPrice
             }, {
                 headers: {
@@ -95,7 +95,7 @@ function OrderPlace() {
 
 
                     SetStatus(false);
-                    const responce = await axios.post(`/Base/api/v1/paymentGetway/verify`, {
+                    const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/paymentGetway/verify`, {
                         razorpay_order_id: response.razorpay_order_id,
                         razorpay_payment_id: response.razorpay_payment_id,
                         razorpay_signature: response.razorpay_signature,
@@ -135,7 +135,7 @@ function OrderPlace() {
 
         const Controller = new AbortController();
         try {
-            const responce = await axios.post(`/Base/api/v1/inventoryManager/purchaceOrder`, {
+            const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/inventoryManager/purchaceOrder`, {
                 ItemName: ProductData.ItmeName,
                 Size: ProductData.Size,
                 SKU: ProductData.SUK,

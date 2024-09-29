@@ -1,6 +1,6 @@
 
-import { Routes,Route, createBrowserRouter } from 'react-router-dom'
-
+import {  createBrowserRouter } from 'react-router-dom'
+import axios from 'axios'
 // import { Outlet } from 'react-router-dom'
 import HomePage from '../Home/HomePage'
 
@@ -15,7 +15,7 @@ import LogIn from '../commponent/LogIn'
 import OrderPlace from '../commponent/OrderPlace'
 import App from '../App'
 import SearchingProductPage from '../commponent/SearchingProductPage'
-import {BaseApi} from '../DataBase'
+
 
 
 
@@ -27,7 +27,7 @@ const Router = createBrowserRouter([
             {
               path:'/',
               element:<HomePage/>,
-              loader : ()=>fetch(`/Base/api/v1/inventoryManager/GetAllFirstPageData`)
+              loader : ()=>fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/inventoryManager/GetAllFirstPageData`)
             },{
                path:'/ShowProductVarient',
                element:<ProductVarient/>

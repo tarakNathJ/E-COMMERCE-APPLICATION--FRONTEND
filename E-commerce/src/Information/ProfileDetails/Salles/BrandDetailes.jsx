@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import {BaseApi} from '../../../DataBase'
+
 
 function BrandDetailes() {
     // *********************User detailes ***************
@@ -89,7 +89,7 @@ function BrandDetailes() {
             BrandLogoImage.append('Brand',fromDataBrandCreation.BrandName)
 
            
-            const responce = await axios.post(`/Base/api/v1/productManager/Product`,BrandLogoImage,{
+            const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/productManager/Product`,BrandLogoImage,{
                 headers: {
                     // 'content-type': 'application/json',
                     Authorisation:`Bearer ${datas.data.token}`,
@@ -151,7 +151,7 @@ function BrandDetailes() {
         const controller = new AbortController();
         try{
             SetSericeStatus(false);
-            const Responce = await axios.post(`/Base/api/v1/productManager/Serice`,{
+            const Responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/productManager/Serice`,{
                 SericeName:fromDataSerice.SericeName
             },{
                 headers:{
@@ -216,7 +216,7 @@ function BrandDetailes() {
         try{
             SetCatalogStatus(false)
             
-            const responce = await axios.post(`/Base/api/v1/productManager//Catlog`,CateLogImage,{
+            const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/productManager//Catlog`,CateLogImage,{
                 headers:{
                     // 'Content-Type': 'application/json'
                     Authorisation:`Bearer ${datas.data.token}`,

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import {BaseApi} from '../../../DataBase'
+
 
 
 function ProductDetailes() {
@@ -90,7 +90,7 @@ function ProductDetailes() {
         setFullFillError(ChackingVariable);
         if ( Object.keys(ChackingVariable).length === 0 ){
             await UploadProduct()
-            alert("data are send");
+            
         }
     }
 
@@ -101,7 +101,7 @@ function ProductDetailes() {
         const ImageData = new FormData()
         
         try{
-            setStatus(false)
+            setStatus(true)
              ImageData.append('image',ProductImage);
              ImageData.append('ItmeName',FromData.ProductName);
              ImageData.append("Vendor_SUK",FromData.VendorSUK);
@@ -114,7 +114,7 @@ function ProductDetailes() {
              ImageData.append('StorageLocation',FromData.StorageLocation);
              ImageData.append('ProductSericeName',FromData.ProductSeriesName);
 
-            const responce =   await axios.post(`/Base/api/v1/productManager/Variant`,ImageData,{
+            const responce =   await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/productManager/Variant`,ImageData,{
                 headers: {
                     // 'Content-Type': 'application/json'
                     Authorisation:`Bearer ${datas.data.token}`,
@@ -128,8 +128,10 @@ function ProductDetailes() {
             })
             setResponce(responce);
             setStatus(false);
+			alert("product Upload Success fully");
 
         }catch(error){
+			alert("sumthing is wrong !");
             setStatus(true);
             if(axios.isCancel(error)){
                 console.log('request canceled',error.message);

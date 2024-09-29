@@ -31,7 +31,7 @@ function UpcomingStock() {
       setErrors(false);
       const controller = new AbortController();
 
-      const responce = await axios.post(`/Base/api/v1/inventoryManager/ShowUpcommingStock`, {}, {
+      const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/inventoryManager/ShowUpcommingStock`, {}, {
         headers: {
           'Content-Type': 'application/json',
           Authorisation: `Bearer ${datas.data.token}`,

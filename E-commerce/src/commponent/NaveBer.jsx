@@ -4,7 +4,7 @@ import { CgSearchFound } from 'react-icons/cg'
 import { FiHome } from 'react-icons/fi'
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-import {BaseApi} from '../DataBase'
+
 
 import { Link, useNavigate } from 'react-router-dom';
 import { SetUOM_data, RemoveUomData } from '../Redux/UserSelectData';
@@ -58,7 +58,7 @@ function NaveBer() {
             SetLoding(false);
             SetError(false);
 
-            const responce = await axios.post(`/Base/api/v1/productManager/searching`, {
+            const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/productManager/searching`, {
                 UOM: searchingData.Search
             }, {
                 headers: {

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { GiEmptyHourglass } from "react-icons/gi";
 import AddToCartSingleProduct from './AddToCartSingleProduct';
 import { useNavigate } from 'react-router-dom';
-import {BaseApi} from '../DataBase'
+
 
 
 function AddToCart() {
@@ -29,7 +29,7 @@ function AddToCart() {
         try {
             SetError(false)
             Setloding(true);
-            const responce = await axios.post(`${BaseApi}/api/v1/productManager/showAllOrder`, {}, {
+            const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/productManager/showAllOrder`, {}, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorisation: `Bearer ${datas.data.token}`,

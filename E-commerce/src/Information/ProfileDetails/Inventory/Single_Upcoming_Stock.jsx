@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useSelector } from 'react-redux';
-import {BaseApi} from '../../../DataBase'
+
 
 
 function Single_Upcoming_Stock({item}) {
@@ -15,7 +15,7 @@ function Single_Upcoming_Stock({item}) {
         const controller = new AbortController();
         try{
             SetStatus(false);
-            const Responce = await axios.post(`/Base/api/v1/inventoryManager/ExceptUpcommingStock`,{
+            const Responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/inventoryManager/ExceptUpcommingStock`,{
                 StockStransferId:item._id,
                 LOC:1324.354,
                 CC:12.324

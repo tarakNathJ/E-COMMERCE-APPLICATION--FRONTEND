@@ -3,7 +3,7 @@ import SingleUpcommingOrder from './SingleUpcommingOrder'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { SetStockTransfer, SetPurchaseOrderLine, RemoveDataHendeler } from '../../../Redux/UpcommingOrder';
-import {BaseApi} from '../../../DataBase'
+
 
 function UpcomingOrder() {
   const Dispatch = useDispatch();
@@ -19,7 +19,7 @@ function UpcomingOrder() {
       setLodding(true);
       setErrors(false);
       const controller = new AbortController();
-      const responce = await axios.post(`/Base/api/v1/inventoryManager/ShowAllOrder`, {}, {
+      const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/inventoryManager/ShowAllOrder`, {}, {
         headers: {
           'Content-Type': 'application/json',
           Authorisation: `Bearer ${datas.data.token}`,

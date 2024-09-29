@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios, { isAxiosError, isCancel } from 'axios';
 import { useSelector } from 'react-redux';
-import {BaseApi} from '../../../DataBase'
+
 
 
 function SpplierAcountProvide() {
@@ -65,7 +65,7 @@ function SpplierAcountProvide() {
     const controller = new AbortController();
     try {
       SetStatus1(false)
-      const Responce = await axios.post(`/Base/api/v1/inventoryManager/FindUser`, {
+      const Responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/inventoryManager/FindUser`, {
         Email: EmployEmail.CreateEmployAccount
       }, {
         headers: {
@@ -158,7 +158,7 @@ function SpplierAcountProvide() {
     try {
       SetStatus2(false)
      
-      const responce = await axios.post(`/Base/api/v1/inventoryManager/Supplier`, {
+      const responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/inventoryManager/Supplier`, {
         SupplierName: FromData.SupplierName,
         ContactPerson: FromData.ContactPerson,
         ContactTitle: FromData.ContactTitle,

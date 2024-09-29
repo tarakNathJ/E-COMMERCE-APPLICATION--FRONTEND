@@ -18,7 +18,7 @@ function SetHomePageData() {
         try{
           setStatus_Get(true);
           GetSetError(false);
-          const Responce = axios.get(`/Base/api/v1/productManager/ShowAllBrand`).then((data)=>setBrandData(data.data.showAllBrand)).catch((error)=>{
+          const Responce = axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/productManager/ShowAllBrand`).then((data)=>setBrandData(data.data.showAllBrand)).catch((error)=>{
             GetSetError(true);
             console.log("sumthing is wrong : ",error);
           });
@@ -105,7 +105,7 @@ function SetHomePageData() {
 
     try {
   
-      const Responce = await axios.post(`/Base/api/v1/inventoryManager/UpdateFontedPage/Data`, {
+      const Responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/inventoryManager/UpdateFontedPage/Data`, {
         FirstSet: Data,
         SecondSet: fromData.SecondPage,
         ThirdSet: fromData.ThirdSet,
@@ -118,8 +118,9 @@ function SetHomePageData() {
       }, {
         signal: controller.signal
       })
+		alert("home page upload success fully")
     } catch (error) {
-
+	alert("home product upload flild")
       if (axios.isCancel(error)) {
         console.log('request canceled', error.message);
         return
@@ -262,7 +263,7 @@ function SetHomePageData() {
 
         </div>
 
-        <button type="submit" className=' mt-4 text-left w-24 h-8 bg-sky-600 rounded-md hover:shadow-blue-50 hover:shadow-sm hover:duration-300 '> Upload</button>
+        <button type="submit" className='mt-4 w-24 h-8 bg-sky-600 rounded-md hover:shadow-blue-50 hover:shadow-sm hover:duration-300 text-white  text-center'> Upload</button>
       </form>
     </div>
   )

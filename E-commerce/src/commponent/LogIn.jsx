@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { UserProfileData, removeUserprofileData } from '../Redux/UserData';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import {BaseApi} from '../DataBase'
+
 
 
 
@@ -20,7 +20,7 @@ function LogIn() {
   const [FullFillError, setFullFill] = useState({});
   const [Error, SetError] = useState(false);
   const [Status, SetStatus] = useState(null);
-
+	//console.log(import.meta.env.VITE_URL)
 
   useEffect(()=>{
     const Coock = Cookis.get("token")
@@ -74,7 +74,7 @@ function LogIn() {
     try {
       SetStatus(false);
     
-      const Responce = await axios.post(`/Base/api/v1/user/login`, {
+      const Responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/login`, {
         Email: FromData.email,
         password: FromData.password
         

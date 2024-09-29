@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import {BaseApi} from '../../../DataBase'
+
 function SingleUpcommingOrder({Data,Transfer}) {
     const datas = useSelector((store) => store.Profile);
     const [Error ,SetError] = useState(null);
@@ -14,7 +14,7 @@ function SingleUpcommingOrder({Data,Transfer}) {
         const Controller = new AbortController();
         try{
             setStatus(false);
-            const Responce = await axios.post(`/Base/api/v1/inventoryManager/StockUpdate`,{
+            const Responce = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/inventoryManager/StockUpdate`,{
                 Po_LineID:Data._id,
                 LOC:13253,
                 CC:92385,
