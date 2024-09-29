@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { UserProfileData, removeUserprofileData } from '../Redux/UserData';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+
 
 
 
@@ -94,12 +94,12 @@ function LogIn() {
       Cookis.set("token",Responce.data.token); 
 
       Navigate('/');
-      toast.success("You are login success fully");
+      
 
      
     } catch (Error) {
       SetStatus(false)
-      toast.error("Enter right PassWord");
+     
       if (axios.isCancel(Error)) {
         console.log('request canceled', Error.message);
         return

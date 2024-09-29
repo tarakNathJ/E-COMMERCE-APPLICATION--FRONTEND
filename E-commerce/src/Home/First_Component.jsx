@@ -3,7 +3,7 @@ import React from 'react'
 import Itme from './Itme';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setItmes } from '../Redux/productsData';
+
 
 import {SetUOM_data, RemoveUomData} from '../Redux/UserSelectData';
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import React from 'react'
 import { useState } from "react"
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+
 
 
 
@@ -78,12 +78,12 @@ function SignUp() {
                 })
                 
                 SetStatus(true);
-                toast.success("OTP send Success fully");
+                
 
             }catch(error){
                 setErrorAPI(true);
                 SetStatus(false);
-                toast.error("Network Error");
+                
                
                 if(axios.isCancel(error)){
                     console.log('request canceled',error.message)
@@ -173,12 +173,12 @@ function SignUp() {
             setResponce(responce);
             SetErrorSignup(false);
             SetStatusSignUP(true);
-            toast.success("sign up complete ")
+            
             Navigate('/LogIn');
            
         
         }catch(error){
-            toast.error("NetWork error");
+           
             SetErrorSignup(true);
             if(axios.isCancel(error)){
                 console.log('request canceled',error.message);

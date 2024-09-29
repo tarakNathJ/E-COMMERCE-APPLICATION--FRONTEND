@@ -9,11 +9,11 @@ lerna-debug.log*
 
 .env
 node_modules
-vite.config.js
-package.json
-postcss.config.js
-package-lock.json
-tailwind.config.js
+
+#package.json
+#postcss.config.js
+#package-lock.json
+#tailwind.config.js
 dist
 dist-ssr
 *.local

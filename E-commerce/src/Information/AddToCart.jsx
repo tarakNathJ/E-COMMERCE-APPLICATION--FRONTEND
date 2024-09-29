@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { GiEmptyHourglass } from "react-icons/gi";
+
 import AddToCartSingleProduct from './AddToCartSingleProduct';
 import { useNavigate } from 'react-router-dom';
 

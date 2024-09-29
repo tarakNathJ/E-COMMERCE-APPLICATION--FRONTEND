@@ -18,7 +18,7 @@ import {AiFillDelete,AiOutlinePoweroff} from "react-icons/ai"
 import {  removeUserprofileData } from '../Redux/UserData';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
+
 
 
 function ProfileDetails() {
@@ -41,7 +41,7 @@ function ProfileDetails() {
          Cookis.remove("token");
          Dispatch(removeUserprofileData());
          sessionStorage.removeItem('ActioneType');
-         toast.success("log out ")
+         
 
          Navigation('/');
        

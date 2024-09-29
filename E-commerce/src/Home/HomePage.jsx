@@ -10,7 +10,7 @@ import {removeUserprofileData} from '../Redux/UserData';
 
 
 import First_Component from './First_Component';
-import axios from 'axios';
+
 
 import Card3First from './Card3First';
 import Cookies from 'universal-cookie';
