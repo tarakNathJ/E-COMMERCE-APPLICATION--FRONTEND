@@ -14,8 +14,8 @@ node_modules
 #postcss.config.js
 #package-lock.json
 #tailwind.config.js
-dist
-dist-ssr
+#dist
+#dist-ssr
 *.local
 
 # Editor directories and files
