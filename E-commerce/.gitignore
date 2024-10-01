@@ -10,12 +10,7 @@ lerna-debug.log*
 .env
 node_modules
 
-#package.json
-#postcss.config.js
-#package-lock.json
-#tailwind.config.js
-#dist
-#dist-ssr
+
 *.local
 
 # Editor directories and files
